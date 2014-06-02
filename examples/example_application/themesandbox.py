@@ -100,7 +100,7 @@ def themes():
 
 @app.route('/themes/<ident>')
 def settheme(ident):
-    if ident not in app.theme_manager.themes:
+    if ident not in app.extensions['fleem_manager'].themes:
         abort(404)
     session['theme'] = ident
     return redirect(url_for('themes'))
